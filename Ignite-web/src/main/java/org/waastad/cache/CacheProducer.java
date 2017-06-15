@@ -24,9 +24,9 @@ public class CacheProducer {
 
     @Produces
     @ApplicationScoped
-    public Cache<String, Object> getCache() {
+    public Cache<String, List> getCache() {
         log.info("producing cache.....");
-        CacheConfiguration<String, Object> cc = new CacheConfiguration<>("xxxcache");
+        CacheConfiguration<String, List> cc = new CacheConfiguration<>("xxxcache");
         //cc.setIndexedTypes(String.class, FluidGridItem.class);
 //         cc.setTypes(String.class,FluidGridItem.class);
         return Ignition.ignite().getOrCreateCache(cc);

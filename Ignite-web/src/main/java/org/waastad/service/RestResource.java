@@ -31,7 +31,7 @@ import org.primefaces.extensions.model.fluidgrid.FluidGridItem;
 public class RestResource {
 
     @Inject
-    private Cache<String, Object> cache;
+    private Cache<String, List> cache;
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)

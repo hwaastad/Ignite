@@ -39,17 +39,7 @@ public class StartupListener implements ServletContextListener {
         ipFinder.setAddresses(Arrays.asList("127.0.0.1:47500"));
         discoverySpi.setIpFinder(ipFinder);
         ic.setDiscoverySpi(discoverySpi);
-        // ic.setClassLoader(Thread.currentThread().getContextClassLoader());
-        // ic.setPeerClassLoadingLocalClassPathExclude(Person.class.getName());
-        Ignite start = Ignition.start(ic);
-        start.compute();
-//        IgniteCluster cluster = ignite.cluster();
-//
-//// Compute instance over remote nodes.
-//        IgniteCompute compute = ignite.compute(cluster.forRemotes());
-//
-//// Print hello message on all remote nodes.
-//        compute.broadcast(() -> System.out.println("Hello node: " + cluster.localNode().id()));
+        Ignition.start(ic);
     }
 
     @Override
