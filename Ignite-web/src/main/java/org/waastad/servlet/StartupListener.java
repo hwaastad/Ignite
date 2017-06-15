@@ -6,6 +6,10 @@
 package org.waastad.servlet;
 
 import java.util.Arrays;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.ejb.Singleton;
+import javax.ejb.Startup;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
@@ -20,9 +24,9 @@ import org.apache.ignite.spi.discovery.tcp.ipfinder.vm.TcpDiscoveryVmIpFinder;
  *
  * @author helge
  */
-@WebListener
-@Log
 
+@Log
+@WebListener
 public class StartupListener implements ServletContextListener {
 
     @Override

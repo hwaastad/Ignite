@@ -43,8 +43,8 @@ public class RestResource {
             FluidGridItem item = new FluidGridItem(UUID.randomUUID());
             List<FluidGridItem> ll = new ArrayList<>();
             ll.add(item);
-            //cache.put(key, ll);
-            cache.put(key, Arrays.asList(ll.toArray()));
+            cache.put(key, ll);
+//            cache.put(key, Arrays.asList(ll.toArray()));
         }
         List<FluidGridItem> list = (List<FluidGridItem>) cache.get(key);
 
