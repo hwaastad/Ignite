@@ -30,7 +30,7 @@ import org.primefaces.extensions.model.fluidgrid.FluidGridItem;
 @Path("/counter")
 @Singleton
 @Slf4j
-public class RestResource {
+public class Rest2Resource {
 
     @Inject
     private Cache<String, List> cache;

@@ -40,7 +40,7 @@ public class RestResourceIT {
     private URL url;
 
     @Module
-    @Classes(value = {RestResource.class, CacheProducer.class, StartupListener.class}, cdi = true)
+    @Classes(value = {Rest2Resource.class, CacheProducer.class, StartupListener.class}, cdi = true)
     public WebApp app() {
         return new WebApp().addListener(StartupListener.class.getName());
     }
@@ -54,7 +54,7 @@ public class RestResourceIT {
     }
 
     /**
-     * Test of get method, of class RestResource.
+     * Test of get method, of class Rest2Resource.
      */
     @Test
     public void testGet() throws Exception {

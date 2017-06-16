@@ -11,6 +11,7 @@
     <module>Ignite-web</module>
     <module>Ignite-ejb</module>
     <module>Ignite-jar</module>
+    <module>Ignite-web2</module>
   </modules>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>

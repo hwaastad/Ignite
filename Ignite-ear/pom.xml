@@ -40,9 +40,14 @@
                     <useBaseVersion>true</useBaseVersion>
                     <modules>
                         <webModule>
-                             <groupId>${project.groupId}</groupId>
+                            <groupId>${project.groupId}</groupId>
                             <artifactId>Ignite-web</artifactId>
                             <contextRoot>/Ignite-web</contextRoot>
+                        </webModule>
+                        <webModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>Ignite-web2</artifactId>
+                            <contextRoot>/Ignite-web2</contextRoot>
                         </webModule>
                     </modules>
                 </configuration>
@@ -81,6 +86,12 @@
             <artifactId>Ignite-jar</artifactId>
             <version>${project.version}</version>
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>Ignite-web2</artifactId>
+            <version>${project.version}</version>
+             <type>war</type>
         </dependency>
     </dependencies>
 </project>

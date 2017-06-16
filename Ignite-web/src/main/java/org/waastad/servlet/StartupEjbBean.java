@@ -10,12 +10,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ignite.Ignite;
 import org.apache.ignite.Ignition;
 import org.apache.ignite.configuration.IgniteConfiguration;
 import org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi;
@@ -25,14 +20,14 @@ import org.apache.ignite.spi.discovery.tcp.ipfinder.vm.TcpDiscoveryVmIpFinder;
  *
  * @author helge
  */
-
+//@Singleton
+//@Startup
 @Slf4j
-@WebListener
-public class StartupListener implements ServletContextListener {
+public class StartupEjbBean {
 
-    @Override
-    public void contextInitialized(ServletContextEvent sce) {
-        log.info("Initialized....");
+    @PostConstruct
+    public void construct() {
+        log.info("Initialized....Loader: {}", Thread.currentThread().getContextClassLoader());
         Ignition.setClientMode(true);
 
         IgniteConfiguration ic = new IgniteConfiguration();
@@ -44,13 +39,12 @@ public class StartupListener implements ServletContextListener {
         ipFinder.setAddresses(Arrays.asList("127.0.0.1:47500"));
         discoverySpi.setIpFinder(ipFinder);
         ic.setDiscoverySpi(discoverySpi);
-        Ignition.getOrStart(ic);
+        Ignition.start(ic);
     }
 
-    @Override
-    public void contextDestroyed(ServletContextEvent sce) {
+    @PreDestroy
+    public void destroy() {
         log.info("Destroyed....");
         Ignition.stopAll(true);
     }
-
 }
